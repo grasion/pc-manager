@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    .NET Framework 4.8 대상: Windows 10/11에 기본 포함되어 있어 런타임 동봉이 필요 없음.
+    → 단일 exe 수백 KB (기존 .NET 6 self-contained 약 150MB 대비)
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <DebugType>none</DebugType>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <SatelliteResourceLanguages>ko</SatelliteResourceLanguages>
+
+    <AssemblyTitle>PC 관리 도구</AssemblyTitle>
+    <Description>파일 검색 + Windows PC 관리 도구</Description>
+    <Company>PC Manager</Company>
+    <Product>PC Manager CS</Product>
+    <Copyright>Copyright © 2026</Copyright>
+    <Version>2.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="_backup_v1\**;publish\**;PCManagerWinForms\**" />
+    <None Remove="_backup_v1\**;publish\**;PCManagerWinForms\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 업데이트 확인 시 GitHub API JSON 해석 (.NET Framework 기본 포함 어셈블리) -->
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\coffee_qr.png" />
+    <EmbeddedResource Include="Assets\coffee_qr.png" LogicalName="coffee_qr.png" />
+  </ItemGroup>
+
+</Project>
