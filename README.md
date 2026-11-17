@@ -80,7 +80,7 @@ v1에 있던 **회사/학교 계정 정리**, **원드라이브 초기화** 기�
 
 ## 배포 (GitHub Release 업로드)
 
-`배포.bat`을 실행하고 새 버전을 입력하거나, PowerShell에서:
+PowerShell에서 새 버전을 지정해 실행합니다:
 
 ```powershell
 .\release.ps1 2.0.1
@@ -93,9 +93,9 @@ v1에 있던 **회사/학교 계정 정리**, **원드라이브 초기화** 기�
 ## 빌드
 
 ```cmd
-build.bat
+dotnet build -c Release
 ```
-또는 `dotnet build -c Release` → `bin\Release\net48\PCManagerCS.exe`
+→ `bin\Release\net48\PCManagerCS.exe`
 
 ## 파일 구조
 
@@ -117,7 +117,6 @@ PCManagerCS/
 ├── Theme.cs          색상·글꼴·사용자 정의 컨트롤
 ├── Native.cs         Win32 API 선언
 ├── release.ps1       배포 스크립트 (빌드 → 커밋/태그/푸시 → Release 업로드)
-├── 배포.bat          release.ps1 실행용 (버전 입력)
 └── _backup_v1/       v1 원본 소스 백업 (git 제외)
 ```
 
